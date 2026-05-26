@@ -30,3 +30,22 @@ class Solution:
                 current_streak = 1
                 c = max(streak)
         return max(c, current_streak)
+
+
+# SOLUTION 2
+# ------------------ O(n) TC ----------- O(n) SC --------
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        num_set = set(nums)
+        longest = 0
+
+        for num in num_set:
+            if num-1 not in num_set:          # it's a start
+                current = 0
+                while num in num_set:       # keep counting
+                    current += 1
+                    num += 1
+                longest = max(longest, current)
+
+        return longest
