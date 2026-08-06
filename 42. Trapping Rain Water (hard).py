@@ -42,4 +42,23 @@ class Solution:
 # SOLUTION 3
 # ------------------ O(n) TC ----------- O(1) SC --------
 
-
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if not height:
+            return 0
+    
+        l, r = 0, len(height) - 1
+        left_max, right_max = height[l], height[r]
+        total = 0
+    
+        while l < r:
+            if left_max < right_max:
+                l += 1
+                left_max = max(left_max, height[l])
+                total += left_max - height[l]  # always ≥ 0
+            else:
+                r -= 1
+                right_max = max(right_max, height[r])
+                total += right_max - height[r]  # always ≥ 0
+    
+        return total
