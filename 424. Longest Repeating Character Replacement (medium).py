@@ -25,7 +25,7 @@ class Solution:
 
 
 
-# SOLUTION 2
+# SOLUTION 2 SLIDING WINDOW
 # ------------------ O(N) TC ----------- O(1) SC --------
 
 class Solution:
